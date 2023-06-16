@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import NotFoundPage from "./NotFoundPage";
 import articles from "./article-content";
+import CommentsList from "../components/CommentsList";
 
 const ArticlePage = () => {
     const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
@@ -26,6 +27,12 @@ const ArticlePage = () => {
     // using destructuring it can be written as:
     const article = articles.find(article => article.name === articleId);
 
+    const addUpvote = async () => {
+        const response = await axios.put(`/api/articles/${articleId}/upvote`);
+        const updateArticle = response.data;
+        setArticleInfo(updateArticle);
+    }
+
     //if ("article" === undefined) return (<NotfoundPage />);
     if (!article) {
         return <NotFoundPage />
@@ -35,11 +42,17 @@ const ArticlePage = () => {
         <>
         <div>
             <h1>{article.title}</h1>
-            <p>This article has {articleInfo.upvotes} upvote(s).</p>
+            <div className="upvotes-section">
+                <button onClick={addUpvote}>Upvote</button>
+                <p>This article has {articleInfo.upvotes} upvote(s).</p>
+            </div>
             {article.content.map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
             ))}
         </div>
+
+        <CommentsList comments={articleInfo.comments} />
+
         </>
     );
 }
