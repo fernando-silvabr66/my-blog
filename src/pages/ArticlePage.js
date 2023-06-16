@@ -11,7 +11,7 @@ const ArticlePage = () => {
     useEffect(() => {
         const loadArticleinfo = async () => {
 
-            const response = await axios.get(`http://localhost:8080/api/articles/${articleId}`);
+            const response = await axios.get(`/api/articles/${articleId}`);
             const newArticleInfo = response.data;
             // setArticleInfo({ upvotes: 3, comments: [] });
             setArticleInfo(newArticleInfo);
