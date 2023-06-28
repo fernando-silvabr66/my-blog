@@ -2,7 +2,7 @@ const AboutPage = () => (
     <>
     <h1>About Me</h1>
     <p>
-        Welcome to my blog! Proin congue
+        Welcome to my blog! About Page. Proin congue
         ligula id risus posuere, vel eleifend ex egestas. Sed in turpis leo. 
         Aliquam malesuada in massa tincidunt egestas. Nam consectetur varius turpis, 
         non porta arcu porttitor non. In tincidunt vulputate nulla quis egestas. Ut 
