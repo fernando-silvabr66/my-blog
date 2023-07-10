@@ -20,14 +20,14 @@ const LoginPage = () => {
 
     return (
         <>
-        <h1>LogIn</h1>
-        {error && <p className='error'>{error}</p>}
+        <h1>Log In</h1>
+        {error && <p className="error">{error}</p>}
         <input
-            placeholder='Your email address'
+            placeholder="Your email address"
             value={email}
             onChange={e => setEmail(e.target.value)} />
         <input type="password"
-            placeholder='Your password'
+            placeholder="Your password"
             value={password}
             onChange={e => setPassword(e.target.value)} />        
         <button onClick={logIn}>Log In</button>
